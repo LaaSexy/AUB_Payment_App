@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.content.Intent
 import com.example.myapplication.auth.LoginActivity
-import com.example.myapplication.ui.DashboardFragement
 import com.example.myapplication.ui.HistoryFragment
+import com.example.myapplication.ui.HomeFragement
 import com.example.myapplication.ui.PaymentsFragment
 import com.example.myapplication.ui.ProfileFragment
 
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, DashboardFragement())
+                .replace(R.id.fragment_container, HomeFragement())
                 .commit()
         }
         setupBottomNavigation()
@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             var selectedFragment: Fragment? = null
             when (item.itemId) {
-                R.id.navigation_dashboard -> {
-                    selectedFragment = DashboardFragement()
+                R.id.navigation_home -> {
+                    selectedFragment = HomeFragement()
                 }
                 R.id.navigation_payments -> {
                     selectedFragment = PaymentsFragment()
